@@ -1,30 +1,24 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
+// create an interface for decision point contract
 interface Insdp {
-    function getString() external view returns (string memory);
+    function make_decision(address _address) external view returns(bool);
     }
 
 contract nsep {
-    string someData;
-    address public address_nsdp;
-    constructor() {
-        someData = "hello world 1";
+    address public address_nsdp; // address of the decision contract
 
-    }
-    function setAddress(address _address_nsdp) external{
+    constructor(address _address_nsdp)
+    {
         address_nsdp = _address_nsdp;
     }
 
-    function getString() public view returns(string memory) {
-        return someData;
-    }
-    function set_string(string memory _string) public {
-        someData = _string;
-    }
-
-    function call_getstring22() external view returns(string memory) {
-        return Insdp(address_nsdp).getString();
+//call nsdp function to make a decision
+    function permission_to_access(address _address) external view returns(bool)
+    {
+        return Insdp(address_nsdp).make_decision(_address);
+        
     }
     
 }
