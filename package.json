@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "ganache": "^7.4.1"
+  },
+  "scripts": {
+    "ganache": "ganache"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.2",
+    "truffle": "^5.5.27"
+  }
+}
